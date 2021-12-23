@@ -28,8 +28,21 @@ class RandomChar extends Component {
             .then(this.onCharLoaded)
     }
 
+    transformDescr = (description) => {
+        if (!description) {
+            return 'description not found'
+        }
+
+        if (description.length > 200) {
+            return description.slice(0, 200) + '...'
+        }
+
+        return description
+    }
+
     render() {
         const {char: {name, description, thumbnail, homepage, wiki}} = this.state
+
 
         return (
             <div className="randomchar">
@@ -37,7 +50,7 @@ class RandomChar extends Component {
                     <img src={thumbnail} alt="Random character" className="randomchar__img"/>
                     <div className="randomchar__info">
                         <p className="randomchar__name">{name}</p>
-                        <p className="randomchar__descr">{description}</p>
+                        <p className="randomchar__descr">{this.transformDescr(description)}</p>
                         <div className="randomchar__btns">
                             <a href={homepage} className="button button__main">
                                 <div className="inner">homepage</div>
