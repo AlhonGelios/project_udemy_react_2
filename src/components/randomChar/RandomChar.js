@@ -67,7 +67,7 @@ class RandomChar extends Component {
                     <p className="randomchar__title">
                         Or choose another one
                     </p>
-                    <button className="button button__main">
+                    <button className="button button__main" onClick={this.updateChar}>
                         <div className="inner">try it</div>
                     </button>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
@@ -93,9 +93,18 @@ const View = ({char}) => {
         return description
     }
 
+    const transformThumbnail = (thumbnail) => {
+        const clazz = "randomchar__img"
+
+        if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+            return `${clazz} ${clazz}_notFound`
+        } return clazz
+    }
+
     return (
+
         <div className="randomchar__block">
-            <img src={thumbnail} alt="Random character" className="randomchar__img"/>
+            <img src={thumbnail} alt="Random character" className={transformThumbnail(thumbnail)}/>
             <div className="randomchar__info">
                 <p className="randomchar__name">{name}</p>
                 <p className="randomchar__descr">{transformDescr(description)}</p>
