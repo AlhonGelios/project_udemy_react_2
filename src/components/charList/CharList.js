@@ -12,7 +12,7 @@ class CharList extends Component {
         loading: true,
         error: false,
         newItemLoading: false,
-        offset: 1539,
+        offset: 210,
         charEnded: false
     }
 
@@ -37,7 +37,7 @@ class CharList extends Component {
 
     onCharLoaded = (newChar) => {
         let ended = false
-        if (newChar < 9) {
+        if (newChar.length < 9) {
             ended = true
         }
 
