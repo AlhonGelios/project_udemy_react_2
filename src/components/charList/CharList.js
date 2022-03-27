@@ -62,8 +62,8 @@ const CharList = (props) => {
 
         // По возможности, не злоупотребляйте рефами, только в крайних случаях
         itemRefs.current.forEach(item => item.classList.remove('char__item_selected'));
-        itemRefs[id].current.classList.add('char__item_selected');
-        itemRefs[id].current.focus();
+        itemRefs.current[id].classList.add('char__item_selected');
+        itemRefs.current[id].focus();
     }
 
     function renderItems(arr) {
@@ -85,8 +85,8 @@ const CharList = (props) => {
                     }}
                     onKeyPress={(e) => {
                         if (e.key === ' ' || e.key === "Enter") {
-                            props.onCharSelected(item.id);
-                            focusOnItem(i);
+                            props.onCharSelected(item.id)
+                            focusOnItem(i)
                         }
                     }}>
                         <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
