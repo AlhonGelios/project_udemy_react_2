@@ -9,10 +9,8 @@ import ComicsList from "../comicsList/ComicsList";
 import SingleComic from "../singleComic/SingleComic";
 
 import decoration from '../../resources/img/vision.png';
-import comicsAvengers from '../../resources/img/Avengers.png'
-import comicsLogo from '../../resources/img/Avengers_logo.png'
+import AppBanner from "../appBanner/AppBanner";
 
-import './App.scss'
 
 const App = () => {
 
@@ -39,15 +37,10 @@ const App = () => {
                 </div>
                 <img className="bg-decoration" src={decoration} alt="vision"/> */}
 
-                <div className="promo-comics">
-                    <img src={comicsAvengers} alt="Avengers" />
-                    <span className="promo-comics__description">New comics every week!<br/>Stay tuned!</span>
-                    <img src={comicsLogo} alt="Avengers" />
-                </div>
-                <ErrorBoundary>
-                    {/* <ComicsList/> */}
-                    <SingleComic id={8000}/>
-                </ErrorBoundary>
+                    <AppBanner/>
+                    <ComicsList/>
+
+
             </main>
         </div>
     )
