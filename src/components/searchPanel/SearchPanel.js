@@ -38,8 +38,6 @@ const SearchPanel = () => {
             .then(() => setProcess('confirmed'))
     }
 
-    const btnDisabled = process === 'loading' ? true : false
-
     return (
         <Formik
             initialValues = {{
@@ -53,12 +51,11 @@ const SearchPanel = () => {
             <Form className="char__search">
                 <div className="char__search-title">Or find a character by name:</div>
                 <Field name='name' className='char__search-input' type="text" placeholder="Enter name"/>
-                <button type="submit" disabled={btnDisabled} className="button button__main">
+                <button type="submit" disabled={process === 'loading'} className="button button__main">
                     <div className="inner">Find</div>
                 </button>
                 <FormikErrorMessage className="error" name="name" component="div"/>
-                {/* {errorResult}
-                {result} */}
+
                 {setContent(process, Response, char)}
             </Form>
         </Formik>
